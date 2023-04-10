@@ -1,9 +1,12 @@
-function oddNumbers() {
-    var arr = [];
-    //your code here 
-    for (let i = 1; i < 50; i = i+ 2){
-        arr.push(i)
-    }
-    return console.log(arr) 
+var x = 2;
+var y = [1,2,3,4,5];
+var z = [6,7,8,9,10,11];
+
+if(y[x] + z[x-1] == z[x+2])
+{
+    console.log('Codegym');
 }
-a = oddNumbers();
+else
+{
+    console.log('Agilead');
+}
