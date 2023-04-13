@@ -16,13 +16,16 @@ public class PracticeSapXepChen {
         for (int arr : arrays) {
             System.out.print(arr + " ");
         }
-        insertionSort(arrays);
+//        insertionSort(arrays);
+//        bubbleSort(arrays);
+        selectionSort(arrays);
         System.out.println("\nMảng sau khi sắp xếp: ");
         for (int a : arrays) {
             System.out.print(a + " ");
         }
     }
 
+    //Sắp Xếp Chèn
     public static void insertionSort(int[] arrays) {
         int chiso, x;
         for (int i = 1; i < arrays.length; i++) {
@@ -35,4 +38,36 @@ public class PracticeSapXepChen {
             arrays[chiso] = x;
         }
     }
+
+    //Sắp Xếp Nổi Bọt
+    public static void bubbleSort(int[] arrays) {
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = arrays.length - 1; j > i; j--) {
+                if (arrays[j] < arrays[j - 1]) {
+                    int temp = arrays[j];
+                    arrays[j] = arrays[j - 1];
+                    arrays[j - 1] = temp;
+                }
+            }
+        }
+    }
+
+    //Sắp Xếp Chọn
+    public static void selectionSort(int[] arrays) {
+        int min;
+        for (int i = 0; i < arrays.length - 1; i++) {
+            min = i;
+            for (int j = i + 1; j < arrays.length ; j++){
+                if (arrays[j] < arrays[min])
+                    min = j;
+            }
+            if (min != i){
+                int temp = arrays[min];
+                    arrays[min] = arrays[i];
+                    arrays[i] = temp;
+            }
+        }
+    }
+
+
 }
