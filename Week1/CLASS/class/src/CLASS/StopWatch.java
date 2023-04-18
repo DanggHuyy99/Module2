@@ -1,20 +1,28 @@
 package CLASS;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class StopWatch {
     public static void main(String[] args) {
         int[] arrays = new int[100000];
+        Random rd = new Random();
         for (int i = 0; i < arrays.length; i++){
-            arrays[i] = i+1;
-            System.out.print(arrays[i] + ",");
+            arrays[i] = rd.nextInt(100000);
         }
-        StopWatch sw = new StopWatch();
-        sw.Start();
-        sw.End();
-        sw.getElapsedTime();
-        System.out.println();
-        System.out.println(sw.toString());
+
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.Start();
+        System.out.println("Thời gian chạy: " + stopWatch.getStartTime());
+        selectionSort(arrays);
+        for (int a:arrays) {
+            System.out.print(a + ", ");
+        }
+
+        stopWatch.End();
+        System.out.println("\nThời gian kết thúc: " + stopWatch.getEndTime());
+        long elapsedTime = stopWatch.getElapsedTime();
+        System.out.println("\nElapsedTime: " + elapsedTime + " millíseconds");
     }
 
     public StopWatch() {
@@ -25,35 +33,46 @@ public class StopWatch {
     private boolean running;
 
     public void Start() {
-        this.startTime = System.nanoTime();
-        System.out.println(System.nanoTime());
-        this.running = true;
+        startTime = System.currentTimeMillis();
     }
 
     public void End() {
-        this.endTime = System.nanoTime();
-        System.out.println(System.nanoTime());
-        this.running = false;
+        endTime = System.currentTimeMillis();
     }
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
+
+    public long getEndTime() {
+        return endTime;
+    }
+
 
     public long getElapsedTime() {
-        long elapsed;
-        if (running) {
-            elapsed = (System.nanoTime() - startTime);
-        }
-        else {
-            elapsed = (endTime - startTime);
-        }
-        return elapsed;
+        return endTime - startTime;
     }
 
-    public String toString() {
-        long elapsed = getElapsedTime();
-        long hours = TimeUnit.NANOSECONDS.toHours(elapsed);
-        long minutes = TimeUnit.NANOSECONDS.toMinutes(elapsed) - TimeUnit.HOURS.toMinutes(hours);
-        long seconds = TimeUnit.NANOSECONDS.toSeconds(elapsed) - TimeUnit.MINUTES.toSeconds(minutes) - TimeUnit.HOURS.toSeconds(hours);
-        long milliseconds = TimeUnit.NANOSECONDS.toMillis(elapsed) - TimeUnit.SECONDS.toMillis(seconds) - TimeUnit.MINUTES.toMillis(minutes) - TimeUnit.HOURS.toMillis(hours);
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
 
-        return String.format("%02d:%02d:%02d:%03d", hours, minutes, seconds, milliseconds);
+        for (int i = 0; i < n-1; i++) {
+            int min = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min])
+                    min = j;
+
+            int temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+        }
     }
+
 }
