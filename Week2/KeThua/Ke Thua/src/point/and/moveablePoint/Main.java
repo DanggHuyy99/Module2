@@ -16,5 +16,8 @@ public class Main {
 
         moveablePoint.move();
         System.out.println(moveablePoint);
+
+//        Point[] points = new Point[5];
+
     }
 }
