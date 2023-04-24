@@ -1,2 +1,5 @@
-package resizeable;public interface Colorable {
+package resizeable;
+
+public interface Colorable {
+    public void howToColor();
 }
