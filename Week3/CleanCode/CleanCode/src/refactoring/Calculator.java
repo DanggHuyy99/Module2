@@ -1,7 +1,7 @@
 package refactoring;
 
 public class Calculator {
-    int soDauTien;
+        int soDauTien;
     int soThuHai;
     char toanTu;
     public Calculator(){};
