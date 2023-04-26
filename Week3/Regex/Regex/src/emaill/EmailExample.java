@@ -1,4 +1,4 @@
-package validate.email;
+package emaill;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
