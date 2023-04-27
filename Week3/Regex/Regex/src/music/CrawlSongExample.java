@@ -22,7 +22,9 @@ public class CrawlSongExample {
             Pattern pattern = Pattern.compile("name_song\">(.*?)</a>");
             Matcher matcher = pattern.matcher(content);
             while (matcher.find()){
-                System.out.println(matcher.group(1));
+                String link = matcher.group(1);
+                String text = matcher.group(0);
+                System.out.println(link + " " + text);
             }
         } catch (IOException e) {
             e.printStackTrace();
