@@ -13,9 +13,13 @@ public class MyList<E> {
         linkedList.add(89);
         linkedList.add(101);
         linkedList.addFirst(4545);
-        System.out.println(linkedList);
+        System.out.println(linkedList.toString());
         linkedList.remove(3);
         linkedList.removeFirst();
+        System.out.println(linkedList);
+        linkedList.clear();
+        linkedList.add(1);
+        System.out.println(linkedList);
 
 
     }

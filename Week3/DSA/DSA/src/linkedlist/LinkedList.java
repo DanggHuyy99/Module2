@@ -7,7 +7,7 @@ import javax.xml.soap.Node;
 public class LinkedList {
     public static void main(String[] args) {
         System.out.println("/=/=/=/= TESTING /=/=/=/=");
-        LinkedList ll = new LinkedList(10);
+        LinkedList ll = new LinkedList();
         ll.addFirst(11);
         ll.addFirst(12);
         ll.addFirst(13);
@@ -16,14 +16,14 @@ public class LinkedList {
         ll.add(4, 9);
         ll.printList();
         System.out.println(ll.numNodes);
+        System.out.println(ll);
     }
 
     private Node head;
     private int numNodes;
 
-    public LinkedList(Object data) {
-        head = new Node(data);
-        numNodes++;
+    public LinkedList() {
+
     }
 
     public void add(int index, Object data) {
@@ -74,4 +74,6 @@ public class LinkedList {
             return this.data;
         }
     }
+
+
 }
