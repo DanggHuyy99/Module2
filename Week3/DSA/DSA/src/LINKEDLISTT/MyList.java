@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 
 public class MyList<E> {
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
+        MyList<Integer> linkedList = new MyList<>();
         linkedList.add(0, 9);
         System.out.println(linkedList);
         linkedList.add(89);
@@ -15,11 +15,12 @@ public class MyList<E> {
         linkedList.addFirst(4545);
         System.out.println(linkedList.toString());
         linkedList.remove(3);
-        linkedList.removeFirst();
+//        linkedList.removeFirst();
         System.out.println(linkedList);
         linkedList.clear();
         linkedList.add(1);
         System.out.println(linkedList);
+        System.out.println(linkedList.checkRemove(4545));
 
 
     }
@@ -102,7 +103,7 @@ public class MyList<E> {
         return temp.getData();
     }
 
-    public boolean remove(Object element) {
+    public boolean checkRemove(Object element) {
         Node temp = head;
 
         if (element == null) {
